@@ -1,8 +1,12 @@
 import xmlrpc.client
+import time
 
-s = xmlrpc.client.ServerProxy('http://localhost:8000')
+server = xmlrpc.client.ServerProxy('http://192.168.0.117:9000')
 
-print(s.pow(2,3))
-print(s.add(2,3))
-print(s.mul(2,3))
-print(s.pow(2,3))
+count = 100
+
+for i in range(count):
+    time.sleep(1)
+    response = server.message(i)
+    print(response)
+
